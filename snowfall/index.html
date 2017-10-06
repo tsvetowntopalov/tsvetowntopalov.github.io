@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snowfall</title>
+    <link rel="stylesheet" href="./main.css"/>
+</head>
+<body>
+<div class="mountain"></div>
+<script src="./jquery.min.js"></script>
+<script src="./jquery.snowfall.min.js"></script>
+<script src="./shoot.js"></script>
+<script>
+    'use strict';
+
+    $(document).snowfall({
+        minSize: 1,
+        maxSize: 2
+    });
+    (new ShootingStar("body")).launch(2);
+
+    $(window).resize(function () {
+        $(document).snowfall('clear');
+        $(document).snowfall();
+    });
+</script>
+</body>
+</html>
