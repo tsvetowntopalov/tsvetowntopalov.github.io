@@ -1,0 +1,243 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+button,
+input { 
+  outline: none;
+}
+
+body { 
+  background: #f6f4e5; 
+  color: #34495e;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper { 
+  width: 100%; 
+  max-width: 820px; 
+  margin: 50px auto 0;
+}
+
+.column { 
+  float: left; 
+  width: 360px; 
+  margin: 0 25px 50px; 
+  position: relative;
+}
+
+#vincentkit { 
+  background: #fdfdfd;
+  box-shadow: 0 6px 28px rgba(40,42,47,.18);
+  border-radius: 8px;
+  position: relative;
+  display: block;
+  padding-bottom: 40px;
+}
+#vincentkit > h1 { 
+  font-size:14px;
+  color: #34495e;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  padding: 17px 40px;
+  border-bottom: 2px solid #ebedf3;
+}
+#vincentkit > fieldset > label {
+  margin: 46px 0 10px;
+  display: block;
+  color: #b9bbc5;
+  font-size: 14px;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-align: left;
+}
+#vincentkit > fieldset { 
+  border: 0;
+  margin: 0;
+  padding: 0 40px;
+  display: block;
+  position: relative;
+  text-align: center;
+}
+#vincentkit > fieldset > label.half > input,
+#vincentkit > fieldset > input[type="password"],
+#vincentkit > fieldset > input[type="text"] {
+  background: #fdfdfd;
+  width: 100%;
+  display: block;
+  color: #4b4e58;
+  font-size: 14px;
+  line-height: 1;
+  padding: 10px 20px;
+  border: 0;
+  box-shadow: 0 0 0 2px #e3e4eb;
+  border-radius: 50px;
+  transition: box-shadow .3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#vincentkit > fieldset > label.half > input:focus,
+#vincentkit > fieldset > input:focus {
+  box-shadow: 0 6px 16px rgba(40,42,47,.18);
+}
+#vincentkit > fieldset > input.password {
+  width: 60%;
+  float: left;
+}
+#vincentkit > fieldset > button {
+  width: 35%;
+  float: left;
+  margin-left: 5%;
+  padding: 12px 0 11px;
+  border-radius: 50px;
+  border: 0;
+  background: #ffb500;
+  color: #FFF;
+  top: -2px;
+  position:relative;
+  transition: all .6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#vincentkit > fieldset > button:hover {
+  background: #e2a000;
+  box-shadow: 0 6px 16px rgba(40,42,47,.18);
+}
+#vincentkit > fieldset > .lp {
+  text-align: center;
+  font-size: 14px;
+  display: block;
+  color: #a8aab3;
+  text-decoration: underline;
+  margin: 30px 0 50px;
+}
+#vincentkit > fieldset > .clear:after,
+#vincentkit > fieldset > .clear:before {
+    content: " ";
+    display: table;
+}
+#vincentkit > fieldset > .clear:after { clear: both; }
+#vincentkit > fieldset > .line {
+  text-align: center;
+  color: #b9bbc5;
+  font-size: 14px;
+  background: #ebedf3;
+  height: 2px;
+  margin: 0 0 30px
+}
+#vincentkit > fieldset > .line > span {
+  background: #FDFDFD;
+  padding: 10px;
+  top: -8px;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+#vincentkit > fieldset > .button {
+  font-size: 12px;
+  color: #FFF;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 48%;
+  display: block;
+  float: left;
+  margin-right: 4%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50px;
+}
+#vincentkit > fieldset > .button.tw { background: #2d96e8; }
+#vincentkit > fieldset > .button.fb { background: #506dbe; margin-right: 0; }
+#vincentkit > fieldset > .button.si { 
+  background: #745adc; 
+  margin: 0 auto; 
+  float: none;
+}
+#vincentkit > fieldset > .button > i {
+  font-size: 16px;
+  margin-right: 5px;
+  position: relative;
+  top: 1px;
+}
+
+#vincentkit > fieldset > label.half {
+  width: 48%;
+  float: left;
+  margin-right: 4%;
+}
+#vincentkit > fieldset > label.half.last {
+  margin-right: 0;
+}
+#vincentkit > fieldset > label.half > input {
+  margin-top: 10px;
+}
+
+#vincentkit > fieldset > .submit2 {
+  width: auto;
+  padding: 10px 30px;
+  margin: 30px auto 22px;
+  float: none;
+  background: #53d2cd;
+}
+#vincentkit > fieldset > .submit2:hover {
+  background: #26a8a3;
+}
+
+
+/* Quick fix for preview */
+@media screen and (max-width: 820px) {
+    .column { 
+      float: none;
+      margin: 0 auto 50px; 
+    }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="column">
+    <form id="vincentkit">
+      <h1>Login</h1>
+      <fieldset>
+        <label for="email">Email</label>
+        <input class="email" id="email" type="text">
+        <label for="password">Password</label>
+        <input class="password" id="password" type="password">
+        <button class="submit" type="submit">Sign In</button>
+        <div class="clear"></div>
+        <a class="lp" href="#">Forgotten Password?</a>
+        <div class="line"><span>OR</span></div>
+        <a class="button tw" href="#"><i class="fa fa-twitter"></i> Twitter</a>
+        <a class="button fb" href="#"><i class="fa fa-facebook"></i> Facebook</a>
+      </fieldset>
+    </form>
+  </div>
+  <div class="column">
+    <form id="vincentkit">
+      <h1>Create Account</h1>
+      <fieldset>
+        <label for="email">Email</label>
+        <input class="email" id="email" type="text">
+        <label class="half" for="name">Nickname
+          <input class="name" id="name" type="text">
+        </label>
+        <label class="half last" for="password2">Password
+          <input class="password" id="password2" type="password">
+        </label>
+        <div class="clear"></div>
+        <button class="submit2" type="submit">Sign Up</button>
+        <div class="clear"></div>
+        <div class="line"><span>Have an account?</span></div>
+        <a class="button si" href="#">Sign-in</a>
+      </fieldset>
+    </form>
+  </div>
+</div>
+</body>
+</html>
