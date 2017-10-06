@@ -34,7 +34,7 @@
         var name = this.getRandom(100, 1);
         $("#star" + name).remove();
         $(this.capa).append("<div id='star" + name + "'></div>");
-        $("#star" + name).append("<div id='haz" + this.n + "' class='haz' style='position:absolute;text-shadow: 0px 0px 1px, 0px 0px 1px, 0px 0px 1px; color:#FF0;width:10px;height:10px;font-weight:bold;font-size:"+ this.options.starSize +"px'>·</div>");
+        $("#star" + name).append("<div id='haz" + this.n + "' class='haz' style='position:absolute;filter:blur(0.05rem);color:#FF0;width:10px;height:10px;font-weight:bold;font-size:"+ this.options.starSize +"px'>·</div>");
         if (this.n > 1) $("#haz" + (this.n - 1)).css({
             color: "rgba(255,255,255,0.5)"
         });
