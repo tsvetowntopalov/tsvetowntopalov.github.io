@@ -1,0 +1,164 @@
+body, html { min-height:100%; }
+body {
+  background-color: #000;
+  background-image: url('http://wallpapercave.com/wp/1dEgpit.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+@maincolor: #09b5fd;
+@fingercolor: #1d1d25;
+
+@card-height: 480px;
+@card-width: 800px;
+
+@finger-range: 100px;
+@finger-icon: 55px;
+@pulse-multiplier: 10px;
+
+.card {
+  background-color: fade(#100e0f, 95%);
+  background-image: url('https://cesstrelle.files.wordpress.com/2015/02/hg-cu-lightgrunged-overlay.png');
+  background-size: 150%;
+  background-position: center;
+  width: @card-width;
+  height: @card-height;
+  position: absolute;
+  top:50%; left: 50%;
+  margin: -(@card-height / 2) 0 0 -(@card-width / 2);
+  box-shadow: 0 22px 30px rgba(0,0,0,.75);
+  // Fingerprint scan
+  .finger {
+    display: block;
+    cursor: pointer;
+    background-color: fade(@fingercolor, 75%);
+    width: @finger-range;
+    height: @finger-range;
+    position: absolute;
+    bottom: 3em;
+    left: 50%;
+    margin-left: -(@finger-range / 2);
+    display: block;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px fade(@maincolor, 30%);
+    transition: all 300ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    &:active:not(.active) {
+      transition: all 50ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
+      transform:  scale(1.08);
+      background: fade(@fingercolor, 55%);
+    }
+    &.active {
+      /*transform: scale(1.1);
+      background-color: fade(@maincolor, 25%);*/
+      box-shadow: 0 0 0 1px fade(@maincolor, 50%);
+    }
+    svg {
+      z-index: 1;
+      display: block;
+      position: relative;
+      width: @finger-icon;
+      height: @finger-icon;
+      margin-left: (@finger-range - @finger-icon) / 2;
+      margin-top: (@finger-range - @finger-icon) / 2;
+      path {
+        fill: @maincolor;
+      }
+    }
+    .pulse {
+      position: absolute;
+      width: (@finger-range + @pulse-multiplier * 2);
+      height: (@finger-range + @pulse-multiplier * 2);
+      top: -@pulse-multiplier; 
+      left: -@pulse-multiplier; 
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px fade(@maincolor, 15%);
+      -webkit-animation: pulsate 1.3s linear;
+      -webkit-animation-iteration-count: infinite; 
+      z-index: 5;
+      &.second { 
+        width: (@finger-range + @pulse-multiplier * 4);
+        height: (@finger-range + @pulse-multiplier * 4);
+        top: -(@pulse-multiplier*2); 
+        left: -(@pulse-multiplier*2); 
+        box-shadow: inset 0 0 0 1px fade(@maincolor, 12%);
+        -webkit-animation: pulsate 1.7s linear;
+        -webkit-animation-iteration-count: infinite; 
+      }
+      &.third { 
+        width: (@finger-range + @pulse-multiplier * 6);
+        height: (@finger-range + @pulse-multiplier * 6);
+        top: -(@pulse-multiplier*3); 
+        left: -(@pulse-multiplier*3); 
+        box-shadow: inset 0 0 0 1px fade(@maincolor, 9%);
+        -webkit-animation: pulsate 2.3s linear;
+        -webkit-animation-iteration-count: infinite; 
+      }
+    }
+    .scan {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      /*background: rgba(255,0,0,.3);*/
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      z-index: 10;
+      overflow: hidden;
+      .line {
+        width: 80%;
+        height: 1px;
+        top: 50%;
+        left: 50%;
+        margin-left: -40%;
+        position: absolute;
+        background: rgba(255,255,255,.1);
+        &:before,
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0px;
+          width: 5px;
+          height: 1px;
+          background-color: #FFF;
+        }
+        &:before { left: 0; }
+        &:after { right: 0; }
+      }
+      .fade-line {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: @finger-range;
+          height: @finger-range;
+          background: fade(@fingercolor, 50%);
+      }
+    }
+  }
+}
+
+.finger.active {
+  .scan {
+    .line,
+    .fade-line {
+      -webkit-animation: updown 2.3s ease;
+      -webkit-animation-iteration-count: infinite; 
+    }
+  }
+}
+
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.95, 0.95); opacity: 0.0;}
+    75% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.15, 1.15); opacity: 0.0;}
+}
+
+@-webkit-keyframes updown {
+    0% {transform: translateY(0)}
+    25% {transform: translateY((@finger-range / 2))}
+    50% {transform: translateY(0)}
+    75% {transform: translateY(-(@finger-range / 2))}
+    100% {transform: translateY(0)}
+}

@@ -1,0 +1,170 @@
+body,
+html {
+  min-height: 100%;
+}
+body {
+  background-color: #000;
+  background-image: url('http://wallpapercave.com/wp/1dEgpit.jpg');
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+.card {
+  background-color: rgba(16, 14, 15, 0.95);
+  background-image: url('https://cesstrelle.files.wordpress.com/2015/02/hg-cu-lightgrunged-overlay.png');
+  background-size: 150%;
+  background-position: center;
+  width: 800px;
+  height: 480px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -240px 0 0 -400px;
+  box-shadow: 0 22px 30px rgba(0, 0, 0, 0.75);
+}
+.card .finger {
+  cursor: pointer;
+  background-color: rgba(29, 29, 37, 0.75);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 3em;
+  left: 50%;
+  margin-left: -50px;
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(9, 181, 253, 0.3);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.card .finger:active:not(.active) {
+  transition: all 50ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: scale(1.08);
+  background: rgba(29, 29, 37, 0.55);
+}
+.card .finger.active {
+  /*transform: scale(1.1);
+      background-color: fade(@maincolor, 25%);*/
+  box-shadow: 0 0 0 1px rgba(9, 181, 253, 0.5);
+}
+.card .finger svg {
+  z-index: 1;
+  display: block;
+  position: relative;
+  width: 55px;
+  height: 55px;
+  margin-left: 22.5px;
+  margin-top: 22.5px;
+}
+.card .finger svg path {
+  fill: #09b5fd;
+}
+.card .finger .pulse {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: -10px;
+  left: -10px;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(9, 181, 253, 0.15);
+  -webkit-animation: pulsate 1.3s linear;
+  -webkit-animation-iteration-count: infinite;
+  z-index: 5;
+}
+.card .finger .pulse.second {
+  width: 140px;
+  height: 140px;
+  top: -20px;
+  left: -20px;
+  box-shadow: inset 0 0 0 1px rgba(9, 181, 253, 0.12);
+  -webkit-animation: pulsate 1.7s linear;
+  -webkit-animation-iteration-count: infinite;
+}
+.card .finger .pulse.third {
+  width: 160px;
+  height: 160px;
+  top: -30px;
+  left: -30px;
+  box-shadow: inset 0 0 0 1px rgba(9, 181, 253, 0.09);
+  -webkit-animation: pulsate 2.3s linear;
+  -webkit-animation-iteration-count: infinite;
+}
+.card .finger .scan {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /*background: rgba(255,0,0,.3);*/
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  z-index: 10;
+  overflow: hidden;
+}
+.card .finger .scan .line {
+  width: 80%;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  margin-left: -40%;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+}
+.card .finger .scan .line:before,
+.card .finger .scan .line:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0px;
+  width: 5px;
+  height: 1px;
+  background-color: #FFF;
+}
+.card .finger .scan .line:before {
+  left: 0;
+}
+.card .finger .scan .line:after {
+  right: 0;
+}
+.card .finger .scan .fade-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: rgba(29, 29, 37, 0.5);
+}
+.finger.active .scan .line,
+.finger.active .scan .fade-line {
+  -webkit-animation: updown 2.3s ease;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.95, 0.95);
+    opacity: 0.0;
+  }
+  75% {
+    opacity: 1.0;
+  }
+  100% {
+    -webkit-transform: scale(1.15, 1.15);
+    opacity: 0.0;
+  }
+}
+@-webkit-keyframes updown {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
