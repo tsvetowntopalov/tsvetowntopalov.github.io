@@ -1,0 +1,296 @@
+body {
+	overflow: hidden;
+	background: #e6e9f0;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 14px;
+    color: #FFF;
+}
+.earthwrapper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	perspective: 500px;
+}
+.earth {
+	position: absolute;
+    width: 94%;
+    height: 94%;
+    top: 3%;
+    left: 3%;
+    border-radius: 25px;
+	background: #511898;
+	background: -moz-linear-gradient(top, #511898 0%, #2558b6 100%);
+	background: -webkit-linear-gradient(top, #511898 0%,#2558b6 100%);
+	background: linear-gradient(to bottom, #511898 0%,#2558b6 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#511898', endColorstr='#2558b6',GradientType=0 );
+}
+.earth .stardust1,
+.earth .stardust2 {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-repeat: repeat;
+	background-image: url('../img/stardust.png');
+    background-position: center;
+    opacity: .6;
+}
+.earth .stardust2 {
+	background-image: url('../img/stardust2.png');
+    opacity: .3;
+}
+.row {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.globe {
+    position: absolute;
+    left: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+	width: 84%;
+    height: 0;
+    padding-top: 84%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 10px 0 rgba(184, 181, 255, 0.80), 
+    			0 0 50px 10px rgba(38, 86, 181, 0.50);
+}
+.globe > .background {
+	backface-visibility: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	transition: all 1s;
+    border-radius: 50%;
+    background-image: url('../img/earth-map.jpg');
+    background-size: auto 120%;
+    background-position-y: 10%;
+    background-repeat: repeat-x;
+    box-shadow: inset 0 0 10px 5px rgba(164, 207, 255, 0.2),
+				inset 0 0 50px 10px rgba(119, 155, 255, 0.9), 
+				inset 0 0 15em 15em rgba(58, 79, 163, 0.75),
+	            inset -10em -5em 5em rgba(0,0,0, 0.5), 
+	            inset 25px 25px 45px rgba(0,0,0, 0.45);
+    transform: rotate(23deg) translate3d(0,0,0);
+    will-change: background-position;
+    image-rendering: pixelated;	
+}
+.globe .hour,
+.globe .minute {
+	position: absolute;
+	width: 10px;
+    left: 50%;
+    height: 30%;
+	top: 20%;
+    margin-left: -5px;
+    transform-origin: bottom;
+    overflow: hidden;
+}
+.globe .minute {
+	height: 45%;
+    top: 5%;
+}
+.globe .hour:before,
+.globe .minute:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    margin-left: -5px;
+    border-left: 10px solid rgba(0, 0, 0, 0);
+    border-right: 10px solid rgba(0, 0, 0, 0);
+    border-bottom: 500px solid rgba(255, 255, 255, 0.95);
+}
+.hoursholder,
+.minutesholder {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	top: 0;
+	height: 100%;
+	will-change: transform;
+}
+.globe > .dot {
+    width: 26px;
+    height: 26px;
+    left: 50%;
+    top: 50%;
+    margin: -13px 0 0 -13px;
+    position: absolute;
+    background: #3d6292;
+    border-radius: 50%;
+    border: 6px solid #FFF;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.spin {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 60s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+.secondsholder {
+    position: absolute;
+    left: 0%;
+    top: 50%;
+    transform: translateZ(0) translateY(-50%);
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+ 	border-radius: 50%;
+ 	backface-visibility: hidden;
+    transform-origin: center;
+    will-change: transform;
+}
+.secondsholder > .seconds {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+    transform-origin: center;
+    will-change: transform;
+    border-radius: 50%;
+    border-top: 2px dashed #ced0ff;
+    border-bottom: 0;
+    overflow: hidden;
+}
+
+.hour {
+  animation: rotate 43200s infinite linear;
+}
+.minute {
+  animation: rotate 3600s infinite linear;
+}
+.seconds {
+  animation: rotate 60s infinite linear;
+}
+
+h1 {
+	font-size: 1.45rem;
+	font-weight: 900;
+    padding-top: 2rem;
+    letter-spacing: 0.075rem;
+}
+h1 button {
+	display: inline-block;
+	border: 0;
+	background-color: #18fff7;
+	color: #000;
+	font-weight: 900;
+	font-family: 'Lato', sans-serif;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	margin-left: 1rem;
+	cursor: pointer;
+	box-shadow: 0 0 40px 1px #18fff7;
+	transition: all 0.2s;
+    float: right;
+    margin-top: -8px;
+}
+h1 button:hover {
+	background-color: #FFF;
+	transition: all 0.3s;
+}
+input {
+    height: 40px;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 100px;
+    border: 0;
+    margin-top: 2rem;
+}
+.duo input {
+	width: 48%;
+	float: left;
+    left: 4%;
+}
+
+.events {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    border-radius: 50%;
+}
+.events .meet {
+    position: absolute;
+    bottom: 10%;
+    right: 24%;
+    background: #ffeb3b;
+    box-shadow: 0 0 20px 1px #ffeb3b;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.events .meet:hover {
+    box-shadow: 0 0 25px 2px #ffeb3b;
+}
+.events .meet.invert {
+    bottom: 70%;
+    right: 8%;
+    background: #18fff7;
+    box-shadow: 0 0 20px 1px #18fff7;
+}
+.events .meet.invert:hover {
+    box-shadow: 0 0 25px 2px #18fff7;
+}
+.events .meet span {
+    position: absolute;
+    white-space: nowrap;
+    left: 100%;
+    top: 100%;
+    margin: 0.5rem 1rem;
+    color: rgba(255,255,255,.4);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, -10px, 0);
+    transition: all 0.3s ease;
+}
+.events .meet:hover span {
+	transform: translate3d(0, 0, 0);
+	opacity: 1;
+}
+aside {}
+aside h2 {
+	margin-top: 40%;
+}
+aside h2 small {
+	display: block;
+	font-size: 70%;
+	margin-top: 2rem;
+	margin-left: 2rem;
+	color: rgba(255,255,255,.75);
+}
+aside p {
+	margin-top: 2rem;
+	margin-left: 2rem;
+	letter-spacing: 0.0725rem;
+	color: rgba(255,255,255,.5);
+}
+
+@keyframes spin { 
+	100% { 
+		background-position-x: 171.4%;
+	} 
+}
+@keyframes rotate { 
+	100% { 
+		transform: rotateZ(360deg);
+	} 
+}

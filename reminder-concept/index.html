@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>World Clock Events</title>
+<link href="public/css/bootstrap-reboot.min.css" rel="stylesheet">
+<link href="public/css/bootstrap-grid.min.css" rel="stylesheet">
+<link href="public/css/index.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+<script>
+document.addEventListener("DOMContentLoaded", function(event) { 
+	var seconds = document.querySelector(".secondsholder"),
+		minutes = document.querySelector(".minutesholder"),
+		hour    = document.querySelector(".hoursholder")
+		now     = new Date(),
+		angle3  = now.getHours() / 12 * 360 + now.getMinutes() / 60 * 30,
+		angle2  = now.getMinutes() / 60 * 360 + now.getSeconds() / 60 * 6,
+		angle1  = now.getSeconds() / 60 * 360;
+		
+		seconds.style.transform = seconds.style.webkitTransform = "translateY(-50%) rotate("+angle1+"deg)";
+		minutes.style.transform = minutes.style.webkitTransform = "rotate("+angle2+"deg)";
+		hour.style.transform = hour.style.webkitTransform = "rotate("+angle3+"deg)";
+});
+</script>
+</head>
+<body>
+<div class="earthwrapper">
+	<div class="earth">
+		<div class="stardust1"></div>
+		<div class="stardust2"></div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-3">
+					<h1>REMINDER. <button>+</button></h1>
+					<input type='text' placeholder='Type in event..'> 
+					<div class='duo'>
+						<input type='text' placeholder='Start'> 
+						<input style='position:relative' type='text' placeholder='End'> 
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="globe">
+						<div class="background spin"></div>
+						<div class="hoursholder">
+							<div class="hour"></div>
+						</div>
+						<div class="minutesholder">
+							<div class="minute"></div>
+						</div>
+						<div class="dot"></div>
+
+					</div>
+					<div class="secondsholder">
+						<div class="seconds"></div>
+					</div>
+					<div class="events">
+						<div class="meet">
+							<span>5:25 PM - Meeting</span>
+						</div>
+						<div class="meet invert"></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<aside>
+						<h2>
+							<span>2:08 PM - Meet Jacob</span>
+							<small>Starts: 11/3/2017 &nbsp;&nbsp; Ends: 11/3/2017</small>
+						</h2>
+						<p>
+							Planing to visit Las Vegas or any other vacation resort where
+							casinos are a major portion of their business? I have just the
+							thing for you. Here, I will show you how to pass off a High 
+							Roller and collect many complimentary.
+						</p>
+					</aside>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
