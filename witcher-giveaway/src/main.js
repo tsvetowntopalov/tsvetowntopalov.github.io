@@ -1,6 +1,5 @@
 import imagesLoaded from 'imagesloaded';
 
-
 import './main.scss';
 
 let totalImages = 3,

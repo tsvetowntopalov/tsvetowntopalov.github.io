@@ -12,11 +12,11 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: extractSass.extract({
-                    use: [{
-                        loader: "css-loader", options: {sourceMap: true}
-                    }, {
-                        loader: "sass-loader", options: {sourceMap: true}
-                    }],
+                    use: [
+                        {loader: "css-loader"},
+                        {loader: "postcss-loader"},
+                        {loader: "sass-loader"},
+                    ],
                     fallback: "style-loader"
                 })
             },
@@ -32,6 +32,16 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
             }
         ]
     },
