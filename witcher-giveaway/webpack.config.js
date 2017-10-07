@@ -1,7 +1,7 @@
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require("webpack");
 const extractSass = new ExtractTextPlugin({
-    filename: "./public/[name].css",
+    filename: "./dist/[name].css",
     // disable: process.env.NODE_ENV === "development"
 });
 
@@ -28,7 +28,7 @@ module.exports = {
                         options: {
                             name: '[name].[ext]',
                             publicPath: '../',
-                            outputPath: 'public/'
+                            outputPath: 'dist/'
                         }
                     }
                 ]
@@ -44,6 +44,6 @@ module.exports = {
     ],
     entry: './src/main.js',
     output: {
-        filename: './public/app.js'
+        filename: './dist/app.js'
     }
 };
